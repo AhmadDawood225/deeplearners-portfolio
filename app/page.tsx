@@ -1,15 +1,20 @@
+'use client';
+import { useState } from 'react';
+
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-wooden-black/95 backdrop-blur-sm border-b border-wooden-black-lighter">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-wooden-brown rounded-lg flex items-center justify-center">
-                <span className="text-wooden-black font-bold text-xl">DL</span>
+                <span className="text-white font-bold text-xl">DL</span>
               </div>
-              <span className="text-wooden-brown-lighter font-bold text-xl">DeepLearners</span>
+              <span className="text-wooden-brown-lighter font-bold text-lg sm:text-xl">DeepLearners</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -18,18 +23,78 @@ export default function Home() {
               <a href="#videos" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">Videos</a>
               <a href="#sessions" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">1-on-1 Sessions</a>
               <a href="#reviews" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">Reviews</a>
-              <a href="#contact" className="bg-wooden-brown text-wooden-black px-6 py-2 rounded-lg font-semibold hover:bg-wooden-brown-light transition-all">
+              <a href="#contact" className="bg-wooden-brown text-white px-6 py-2 rounded-lg font-semibold hover:bg-wooden-brown-light transition-all">
                 Contact
               </a>
             </div>
 
             {/* Mobile menu button */}
-            <button className="md:hidden text-wooden-brown-lighter">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-wooden-brown-lighter p-2 hover:bg-wooden-black-light rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 py-4 border-t border-wooden-black-lighter">
+              <div className="flex flex-col gap-4">
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  About
+                </a>
+                <a
+                  href="#services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  Services
+                </a>
+                <a
+                  href="#videos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  Videos
+                </a>
+                <a
+                  href="#sessions"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  1-on-1 Sessions
+                </a>
+                <a
+                  href="#reviews"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  Reviews
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="bg-wooden-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-wooden-brown-light transition-all text-center"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -39,40 +104,40 @@ export default function Home() {
         <div className="absolute top-20 right-10 w-64 h-64 bg-wooden-brown opacity-20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-wooden-brown-dark opacity-10 rounded-full blur-3xl"></div>
 
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left side - Text content with diagonal design */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div className="text-center lg:text-left">
-                <h1 className="text-6xl lg:text-8xl font-bold text-wooden-black mb-4">
+                <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold text-wooden-black mb-3 sm:mb-4">
                   DeepLearners
                 </h1>
-                <h2 className="text-3xl lg:text-4xl font-bold text-wooden-black">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-wooden-black">
                   Agentic AI & Data Science
                 </h2>
               </div>
 
-              <div className="bg-wooden-brown-lighter/90 backdrop-blur-sm rounded-xl p-6 border-2 border-wooden-brown">
-                <p className="text-lg text-wooden-black-dark leading-relaxed">
-                  <span className="font-bold text-wooden-black text-xl block mb-2">Founded & Led by Ahmad Dawood</span>
+              <div className="bg-wooden-brown-lighter/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 border-2 border-wooden-brown">
+                <p className="text-base sm:text-lg text-wooden-black-dark leading-relaxed">
+                  <span className="font-bold text-wooden-black text-lg sm:text-xl block mb-2">Founded & Led by Ahmad Dawood</span>
                   CEO & Chief Instructor | Expert in Agentic AI & Machine Learning
                 </p>
               </div>
 
-              <p className="text-xl text-wooden-black-soft leading-relaxed max-w-xl">
+              <p className="text-base sm:text-xl text-wooden-black-soft leading-relaxed max-w-xl">
                 Master the future of AI with expert instruction in Data Science, Machine Learning, and Agentic AI. Remote teaching that adapts to your learning pace.
               </p>
 
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                 <a
                   href="#contact"
-                  className="bg-wooden-black text-wooden-brown-lighter px-8 py-4 rounded-lg font-semibold hover:bg-wooden-black-light transition-all transform hover:scale-105 shadow-lg"
+                  className="bg-wooden-black text-wooden-brown-lighter px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-wooden-black-light transition-all transform hover:scale-105 shadow-lg text-center active:scale-95"
                 >
                   Get Started
                 </a>
                 <a
                   href="#services"
-                  className="bg-transparent text-wooden-black px-8 py-4 rounded-lg font-semibold hover:bg-wooden-brown-lighter hover:text-wooden-black transition-all border-2 border-wooden-black"
+                  className="bg-transparent text-wooden-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-wooden-brown-lighter hover:text-wooden-black transition-all border-2 border-wooden-black text-center active:scale-95"
                 >
                   Learn More
                 </a>
@@ -126,16 +191,16 @@ export default function Home() {
       </section>
 
       {/* About & Experience Section */}
-      <section id="about" className="py-20 bg-golden-wood-light">
-        <div className="container mx-auto px-6">
+      <section id="about" className="py-12 sm:py-20 bg-golden-wood-light">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl lg:text-5xl font-bold text-black-primary mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black-primary mb-6 sm:mb-8 text-center">
               About Ahmad Dawood
-              <span className="block text-2xl text-black-soft mt-2 font-normal">CEO & Founder of DeepLearners</span>
+              <span className="block text-xl sm:text-2xl text-black-soft mt-2 font-normal">CEO & Founder of DeepLearners</span>
             </h2>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-12">
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
                 <div>
                   <h3 className="text-2xl font-bold text-black-primary mb-4">Qualifications</h3>
                   <div className="space-y-3">
@@ -178,14 +243,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-wooden-black">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl lg:text-5xl font-bold text-wooden-brown-lighter mb-12 text-center">
+      <section id="services" className="py-12 sm:py-20 bg-wooden-black">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-brown-lighter mb-8 sm:mb-12 text-center">
             DeepLearners Services
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-wooden-brown-lighter rounded-xl p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            <div className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown active:scale-95">
               <div className="w-16 h-16 bg-wooden-black rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -197,7 +262,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-wooden-brown-lighter rounded-xl p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown">
+            <div className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown active:scale-95">
               <div className="w-16 h-16 bg-wooden-black rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -209,7 +274,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-wooden-brown-lighter rounded-xl p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown">
+            <div className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 hover:transform hover:scale-105 transition-all shadow-lg border-4 border-wooden-brown active:scale-95">
               <div className="w-16 h-16 bg-wooden-black rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -225,20 +290,20 @@ export default function Home() {
       </section>
 
       {/* YouTube Videos Section */}
-      <section id="videos" className="py-20 bg-wooden-brown-lighter/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-wooden-black mb-4">
+      <section id="videos" className="py-12 sm:py-20 bg-wooden-brown-lighter/30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-black mb-3 sm:mb-4">
               YouTube Lectures
             </h2>
-            <p className="text-wooden-black-soft text-lg max-w-2xl mx-auto">
+            <p className="text-wooden-black-soft text-base sm:text-lg max-w-2xl mx-auto px-4">
               Watch my comprehensive lectures on Data Science, Machine Learning, and Agentic AI
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {/* YouTube Video 1 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -258,7 +323,7 @@ export default function Home() {
             </div>
 
             {/* YouTube Video 2 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -278,7 +343,7 @@ export default function Home() {
             </div>
 
             {/* YouTube Video 3 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -298,7 +363,7 @@ export default function Home() {
             </div>
 
             {/* YouTube Video 4 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -318,7 +383,7 @@ export default function Home() {
             </div>
 
             {/* YouTube Video 5 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -338,7 +403,7 @@ export default function Home() {
             </div>
 
             {/* YouTube Video 6 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   width="100%"
@@ -358,20 +423,21 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="relative inline-block group">
-              <button className="inline-flex items-center gap-3 bg-wooden-black text-wooden-brown-lighter px-10 py-5 rounded-xl font-bold text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown">
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <div className="text-center mt-8 sm:mt-12 px-4">
+            <div className="relative inline-block group w-full sm:w-auto">
+              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-wooden-black text-wooden-brown-lighter px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
-                Watch Full Playlists on YouTube
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="hidden sm:inline">Watch Full Playlists on YouTube</span>
+                <span className="sm:hidden">Full Playlists</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
               {/* Dropdown Menu */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl border-2 border-wooden-brown opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-full sm:w-80 max-w-xs sm:max-w-none bg-white rounded-xl shadow-2xl border-2 border-wooden-brown opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                 <div className="p-4">
                   <h3 className="text-lg font-bold text-wooden-black mb-3 border-b-2 border-wooden-brown pb-2">Available Playlists</h3>
 
@@ -420,20 +486,20 @@ export default function Home() {
       </section>
 
       {/* 1-on-1 Sessions Section */}
-      <section id="sessions" className="py-20 bg-wooden-brown-lighter/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-wooden-black mb-4">
+      <section id="sessions" className="py-12 sm:py-20 bg-wooden-brown-lighter/20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-black mb-3 sm:mb-4">
               1-on-1 Client Sessions
             </h2>
-            <p className="text-wooden-black-soft text-lg max-w-2xl mx-auto">
+            <p className="text-wooden-black-soft text-base sm:text-lg max-w-2xl mx-auto px-4">
               Exclusive recordings from personalized coaching sessions with real clients
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {/* Google Drive Video 1 - Tutorial with Bana */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/12ZGEf48_rC1jjfzquZs0uM9w9b8eC3kV/preview"
@@ -450,7 +516,7 @@ export default function Home() {
             </div>
 
             {/* Google Drive Video 2 - Tutorial with Glen */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/1Bz4ILEks_36dxAcwy5F76T4jOd9mdpGr/preview"
@@ -467,7 +533,7 @@ export default function Home() {
             </div>
 
             {/* Google Drive Video 3 - Lagren Academy May */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/18_q0pxIAtyDsKfQFmSTyiCzUoW26WMmY/preview"
@@ -484,7 +550,7 @@ export default function Home() {
             </div>
 
             {/* Google Drive Video 4 - Lagren Academy June */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/1j5p4L-I2gJokkL0mIlXNkrXbzHF3n7VJ/preview"
@@ -501,7 +567,7 @@ export default function Home() {
             </div>
 
             {/* Google Drive Video 5 - Lagren Academy July 6 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/1LU2iOYo7ULleRUvKHGpAhh2msBhjQC5X/preview"
@@ -518,7 +584,7 @@ export default function Home() {
             </div>
 
             {/* Google Drive Video 6 - Lagren Academy July 13 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown active:scale-95">
               <div className="aspect-video bg-wooden-black-lighter rounded-t-2xl overflow-hidden">
                 <iframe
                   src="https://drive.google.com/file/d/1caR5OmRIEidplEEnr3VOsutL-ZSPDkfR/preview"
@@ -535,15 +601,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-wooden-black-soft text-lg mb-6">
+          <div className="text-center mt-8 sm:mt-12 px-4">
+            <p className="text-wooden-black-soft text-base sm:text-lg mb-4 sm:mb-6">
               Want personalized 1-on-1 sessions? Contact me to schedule your learning journey!
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 bg-wooden-black text-wooden-brown-lighter px-10 py-5 rounded-xl font-bold text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-wooden-black text-wooden-brown-lighter px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown active:scale-95 w-full sm:w-auto"
             >
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               Book a Session
@@ -553,29 +619,29 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-20 bg-wooden-brown-lighter/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-wooden-black mb-4">
+      <section id="reviews" className="py-12 sm:py-20 bg-wooden-brown-lighter/20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-black mb-3 sm:mb-4">
               Client Reviews
             </h2>
-            <p className="text-wooden-black-soft text-lg">
+            <p className="text-wooden-black-soft text-base sm:text-lg px-4">
               See what my clients say about their learning experience
             </p>
-            <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4 flex-wrap">
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <span key={star} className="text-wooden-brown text-2xl">⭐</span>
+                  <span key={star} className="text-wooden-brown text-xl sm:text-2xl">⭐</span>
                 ))}
               </div>
-              <span className="text-wooden-black font-bold text-xl">5.0/5</span>
-              <span className="text-wooden-black-soft">(26 reviews)</span>
+              <span className="text-wooden-black font-bold text-lg sm:text-xl">5.0/5</span>
+              <span className="text-wooden-black-soft text-sm sm:text-base">(26 reviews)</span>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {/* Review 1 - tech_ai_007 (Only one from this client) */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">tech_ai_007</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -592,7 +658,7 @@ export default function Home() {
             </div>
 
             {/* Review 2 - bana_maher */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">bana_maher</h3>
               </div>
@@ -608,7 +674,7 @@ export default function Home() {
             </div>
 
             {/* Review 3 - alexander9494 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">alexander9494</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -625,7 +691,7 @@ export default function Home() {
             </div>
 
             {/* Review 4 - outsourced2015 #1 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">outsourced2015</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -642,7 +708,7 @@ export default function Home() {
             </div>
 
             {/* Review 5 - outsourced2015 #2 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">outsourced2015</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -659,7 +725,7 @@ export default function Home() {
             </div>
 
             {/* Review 6 - outsourced2015 #3 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">outsourced2015</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -676,7 +742,7 @@ export default function Home() {
             </div>
 
             {/* Review 7 - wildmangoose */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">wildmangoose</h3>
               </div>
@@ -692,7 +758,7 @@ export default function Home() {
             </div>
 
             {/* Review 8 - elairproperties */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">elairproperties</h3>
                 <span className="text-xs bg-wooden-brown text-wooden-black px-2 py-1 rounded-full font-semibold">Repeat Client</span>
@@ -709,7 +775,7 @@ export default function Home() {
             </div>
 
             {/* Review 9 - jav_15 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-2 border-wooden-brown">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="font-bold text-wooden-black">jav_15</h3>
               </div>
@@ -725,34 +791,35 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <a
               href="https://www.fiverr.com/daudsahi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-wooden-black text-wooden-brown-lighter px-10 py-5 rounded-xl font-bold text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-wooden-black text-wooden-brown-lighter px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-wooden-black-light transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-wooden-brown active:scale-95 w-full sm:w-auto"
             >
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23 12l-4.61 7H16l-4-7V5h11v7zM9 5H0v7h9V5zm0 8H0v6h9v-6z"/>
               </svg>
-              View All 26 Reviews on Fiverr
+              <span className="hidden sm:inline">View All 26 Reviews on Fiverr</span>
+              <span className="sm:hidden">View All Reviews</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-wooden-black">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl lg:text-5xl font-bold text-wooden-brown-lighter mb-12 text-center">
+      <section id="contact" className="py-12 sm:py-20 bg-wooden-black">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-brown-lighter mb-8 sm:mb-12 text-center">
             Get In Touch
           </h2>
 
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               <a
                 href="mailto:ahmaddawoodsahi225@gmail.com"
-                className="bg-wooden-brown-lighter rounded-xl p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown"
+                className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown active:scale-95"
               >
                 <div className="w-16 h-16 bg-wooden-black rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -767,7 +834,7 @@ export default function Home() {
                 href="https://www.youtube.com/@ahmaddawood_deeplearners"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-wooden-brown-lighter rounded-xl p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown"
+                className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown active:scale-95"
               >
                 <div className="w-16 h-16 bg-wooden-black rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-wooden-brown" fill="currentColor" viewBox="0 0 24 24">
@@ -782,7 +849,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/ahmad-dawood-202753216"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-wooden-brown-lighter rounded-xl p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown"
+                className="bg-wooden-brown-lighter rounded-xl p-6 sm:p-8 text-center hover:transform hover:scale-105 transition-all shadow-lg border-2 border-wooden-brown active:scale-95"
               >
                 <div className="w-16 h-16 bg-wooden-black rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-wooden-brown" fill="currentColor" viewBox="0 0 24 24">
@@ -804,18 +871,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-wooden-black-dark py-12 border-t-2 border-wooden-brown">
-        <div className="container mx-auto px-6">
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl font-bold text-wooden-brown">DeepLearners</h3>
-            <p className="text-wooden-brown-lighter">
+      <footer className="bg-wooden-black-dark py-8 sm:py-12 border-t-2 border-wooden-brown">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-wooden-brown">DeepLearners</h3>
+            <p className="text-wooden-brown-lighter text-sm sm:text-base px-4">
               Founded and led by Ahmad Dawood | CEO & Chief Instructor
             </p>
-            <p className="text-wooden-brown-lighter text-sm">
+            <p className="text-wooden-brown-lighter text-xs sm:text-sm px-4">
               Expert instruction in Data Science, Machine Learning, and Agentic AI
             </p>
-            <div className="pt-4 border-t border-wooden-black-lighter mt-6">
-              <p className="text-wooden-brown-lighter text-sm">
+            <div className="pt-3 sm:pt-4 border-t border-wooden-black-lighter mt-4 sm:mt-6">
+              <p className="text-wooden-brown-lighter text-xs sm:text-sm">
                 © 2024 DeepLearners. All rights reserved.
               </p>
             </div>

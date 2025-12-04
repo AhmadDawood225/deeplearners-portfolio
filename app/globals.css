@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  /* Wooden Brown Color Scheme */
-  --wooden-brown: #8B6F47;
-  --wooden-brown-light: #A68968;
-  --wooden-brown-lighter: #C4A57B;
-  --wooden-brown-dark: #6B5639;
+  /* Wooden Brown Color Scheme - Darker tones */
+  --wooden-brown: #6B5639;
+  --wooden-brown-light: #8B6F47;
+  --wooden-brown-lighter: #A68968;
+  --wooden-brown-dark: #4A3D28;
 
-  /* Wooden Dull Black Shades for Contrast */
-  --wooden-black: #2C2416;
-  --wooden-black-light: #3D3426;
-  --wooden-black-lighter: #4D4436;
-  --wooden-black-soft: #5D5446;
-  --wooden-black-dark: #1C1410;
+  /* Wooden Dull Black Shades for Contrast - Darker */
+  --wooden-black: #1C1410;
+  --wooden-black-light: #2C2416;
+  --wooden-black-lighter: #3D3426;
+  --wooden-black-soft: #4D4436;
+  --wooden-black-dark: #0F0C08;
 
   /* Legacy mappings for compatibility */
   --golden-wood: var(--wooden-brown-lighter);
-  --golden-wood-light: #D4C4A8;
+  --golden-wood-light: #C4A57B;
   --golden-wood-dark: var(--wooden-brown);
   --dark-wood: var(--wooden-black);
   --dark-wood-light: var(--wooden-black-light);
@@ -28,7 +28,7 @@
   --black-soft: var(--wooden-black-soft);
   --black-text: var(--wooden-black-dark);
 
-  --background: #E8DCC8;
+  --background: #D4C4A8;
   --foreground: var(--wooden-black);
 }
 
