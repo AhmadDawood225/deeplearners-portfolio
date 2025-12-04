@@ -1,22 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Wooden Brown Color Scheme */
+  --wooden-brown: #8B6F47;
+  --wooden-brown-light: #A68968;
+  --wooden-brown-lighter: #C4A57B;
+  --wooden-brown-dark: #6B5639;
+
+  /* Wooden Dull Black Shades for Contrast */
+  --wooden-black: #2C2416;
+  --wooden-black-light: #3D3426;
+  --wooden-black-lighter: #4D4436;
+  --wooden-black-soft: #5D5446;
+  --wooden-black-dark: #1C1410;
+
+  /* Legacy mappings for compatibility */
+  --golden-wood: var(--wooden-brown-lighter);
+  --golden-wood-light: #D4C4A8;
+  --golden-wood-dark: var(--wooden-brown);
+  --dark-wood: var(--wooden-black);
+  --dark-wood-light: var(--wooden-black-light);
+  --dark-wood-dark: var(--wooden-black-dark);
+
+  --black-primary: var(--wooden-black);
+  --black-secondary: var(--wooden-black-light);
+  --black-tertiary: var(--wooden-black-lighter);
+  --black-soft: var(--wooden-black-soft);
+  --black-text: var(--wooden-black-dark);
+
+  --background: #E8DCC8;
+  --foreground: var(--wooden-black);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Wooden brown colors */
+  --color-wooden-brown: var(--wooden-brown);
+  --color-wooden-brown-light: var(--wooden-brown-light);
+  --color-wooden-brown-lighter: var(--wooden-brown-lighter);
+  --color-wooden-brown-dark: var(--wooden-brown-dark);
+
+  /* Wooden dull black shades */
+  --color-wooden-black: var(--wooden-black);
+  --color-wooden-black-light: var(--wooden-black-light);
+  --color-wooden-black-lighter: var(--wooden-black-lighter);
+  --color-wooden-black-soft: var(--wooden-black-soft);
+  --color-wooden-black-dark: var(--wooden-black-dark);
+
+  /* Legacy color mappings */
+  --color-golden-wood: var(--golden-wood);
+  --color-golden-wood-light: var(--golden-wood-light);
+  --color-golden-wood-dark: var(--golden-wood-dark);
+  --color-dark-wood: var(--dark-wood);
+  --color-dark-wood-light: var(--dark-wood-light);
+  --color-dark-wood-dark: var(--dark-wood-dark);
+
+  --color-black-primary: var(--black-primary);
+  --color-black-secondary: var(--black-secondary);
+  --color-black-tertiary: var(--black-tertiary);
+  --color-black-soft: var(--black-soft);
+  --color-black-text: var(--black-text);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

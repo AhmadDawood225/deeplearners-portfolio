@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(/usr/local/bin/npm --version)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Bash(~/.nvm/versions/node/*/bin/npm)",
+      "Bash(echo:*)",
+      "Bash(/usr/local/bin/npm run dev)",
+      "Bash(export PATH=\"/usr/local/bin:$PATH\")",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(claude --version:*)",
+      "Bash(export PATH=\"/usr/local/bin:$HOME/.npm-global/bin:$PATH\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
