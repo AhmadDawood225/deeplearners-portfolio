@@ -23,6 +23,7 @@ export default function Home() {
               <a href="#videos" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">Videos</a>
               <a href="#sessions" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">1-on-1 Sessions</a>
               <a href="#reviews" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">Reviews</a>
+              <a href="#blog" className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors">Blog</a>
               <a href="#contact" className="bg-wooden-brown text-white px-6 py-2 rounded-lg font-semibold hover:bg-wooden-brown-light transition-all">
                 Contact
               </a>
@@ -86,6 +87,13 @@ export default function Home() {
                   Reviews
                 </a>
                 <a
+                  href="#blog"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-wooden-brown-lighter hover:text-wooden-brown transition-colors py-2 px-4 rounded-lg hover:bg-wooden-black-light"
+                >
+                  Blog
+                </a>
+                <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="bg-wooden-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-wooden-brown-light transition-all text-center"
@@ -120,7 +128,7 @@ export default function Home() {
               <div className="bg-wooden-brown-lighter/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 border-2 border-wooden-brown">
                 <p className="text-base sm:text-lg text-wooden-black-dark leading-relaxed">
                   <span className="font-bold text-wooden-black text-lg sm:text-xl block mb-2">Founded & Led by Ahmad Dawood</span>
-                  CEO & Chief Instructor | Expert in Agentic AI & Machine Learning
+                  CEO & AI Instructor | Expert in Agentic AI & Machine Learning
                 </p>
               </div>
 
@@ -808,6 +816,112 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section id="blog" className="py-12 sm:py-20 bg-gradient-to-b from-wooden-brown-lighter/30 to-wooden-black/10">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-wooden-black mb-3 sm:mb-4">
+              Insights & Perspectives
+            </h2>
+            <p className="text-wooden-black-soft text-base sm:text-lg max-w-2xl mx-auto px-4">
+              Exploring the future of AI, development paradigms, and the digital transformation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+            {/* Blog 1 - Vibe Coding */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+              <div className="bg-gradient-to-br from-wooden-brown to-wooden-brown-dark p-6 sm:p-8">
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-4">
+                  <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Vibe Coding</h3>
+                <p className="text-wooden-brown-lighter text-sm">The Art of Flow in Development</p>
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  Vibe coding isn't just about writing code—it's about achieving a state of flow where creativity meets technical precision. When you're in the vibe, your fingers dance across the keyboard, solutions emerge naturally, and the boundary between you and your code dissolves.
+                </p>
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  This paradigm shift moves beyond traditional programming methodologies. It's about understanding your natural rhythms, creating the right environment, and letting intuition guide technical decisions while maintaining rigorous standards.
+                </p>
+                <div className="flex items-center gap-2 text-xs text-wooden-black-soft border-t border-wooden-brown-lighter/30 pt-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>5 min read</span>
+                </div>
+              </div>
+            </article>
+
+            {/* Blog 2 - Flow Gramming */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown">
+              <div className="bg-gradient-to-br from-wooden-brown-dark to-wooden-black p-6 sm:p-8">
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-4">
+                  <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Flow Gramming</h3>
+                <p className="text-wooden-brown-lighter text-sm">Programming in the Zone</p>
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  Flow gramming represents the evolution of software development—where deep concentration, optimal challenge, and clear goals converge to create extraordinary productivity. It's the state where hours feel like minutes and complex problems unravel effortlessly.
+                </p>
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  This approach emphasizes removing friction from your development workflow: eliminating distractions, optimizing your toolchain, and structuring work to maintain momentum. When you achieve flow gramming, you're not just productive—you're in harmony with the problem space.
+                </p>
+                <div className="flex items-center gap-2 text-xs text-wooden-black-soft border-t border-wooden-brown-lighter/30 pt-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>6 min read</span>
+                </div>
+              </div>
+            </article>
+
+            {/* Blog 3 - Agentic AI Revolution */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:transform hover:scale-105 border-2 border-wooden-brown md:col-span-2 lg:col-span-1">
+              <div className="bg-gradient-to-br from-wooden-black to-wooden-brown-dark p-6 sm:p-8">
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-4">
+                  <svg className="w-10 h-10 text-wooden-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Agentic AI: The Digital Revolution</h3>
+                <p className="text-wooden-brown-lighter text-sm">When AI Gains Arms in the Digital World</p>
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  We're witnessing a paradigm shift unlike anything in human history. Agentic AI systems now possess both the <span className="font-bold text-wooden-black">brain (LLMs)</span> and the <span className="font-bold text-wooden-black">arms (action capabilities)</span> to operate autonomously in the digital realm. These aren't just tools—they're digital entities that can perceive, reason, decide, and act.
+                </p>
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  Consider this: the average person now spends <span className="font-bold text-wooden-black">6-8 hours daily</span> in the digital world—working, communicating, learning, shopping, and socializing. That's <span className="font-bold text-wooden-black">one-third of our entire existence</span>. For knowledge workers, this number climbs to 10-12 hours. We're not just using digital tools; we're living substantial portions of our lives in digital space.
+                </p>
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  Agentic AI can now operate in this same digital space with increasing autonomy. They can read emails, schedule meetings, analyze data, write code, manage workflows, and coordinate with other systems. Unlike previous automation, these agents understand context, adapt to novel situations, and make reasoned decisions.
+                </p>
+                <p className="text-wooden-black-soft leading-relaxed mb-4">
+                  The implications are profound: as we spend more of our conscious hours in digital environments, and as AI agents become more capable of operating in those same environments, we're approaching a future where human and artificial intelligence collaborate—and sometimes compete—in shared digital spaces.
+                </p>
+                <p className="text-wooden-black font-semibold leading-relaxed">
+                  This isn't science fiction. It's happening now. The question isn't whether agentic AI will transform our world—it's how we'll adapt to a reality where intelligent digital agents work alongside us in the spaces where we increasingly live our lives.
+                </p>
+                <div className="flex items-center gap-2 text-xs text-wooden-black-soft border-t border-wooden-brown-lighter/30 pt-4 mt-6">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>8 min read</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-20 bg-wooden-black">
         <div className="container mx-auto px-4 sm:px-6">
@@ -876,7 +990,7 @@ export default function Home() {
           <div className="text-center space-y-3 sm:space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold text-wooden-brown">DeepLearners</h3>
             <p className="text-wooden-brown-lighter text-sm sm:text-base px-4">
-              Founded and led by Ahmad Dawood | CEO & Chief Instructor
+              Founded and led by Ahmad Dawood | CEO & AI Instructor
             </p>
             <p className="text-wooden-brown-lighter text-xs sm:text-sm px-4">
               Expert instruction in Data Science, Machine Learning, and Agentic AI
